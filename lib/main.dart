@@ -51,14 +51,24 @@ class _MyAppState extends State<MyApp> {
                   ResultView(
                       kelvin: kelvin, fahrenheit: fahrenheit, reamur: reamur),
                   Container(
-                    width: double.infinity,
+                    margin: const EdgeInsets.all(8),
+                    width: 200,
                     height: 50,
-                    // child: RaisedButton(
-                    //   onPressed: konversi,
-                    //   color: Colors.blue,
-                    //   textColor: Colors.black,
-                    //   child: Text("Konversi"),
-                    // ),
+                    child: TextButton(
+                      onPressed: tempConvert,
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      child: const Text(
+                        "Convert",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               )),
