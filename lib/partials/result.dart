@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
-class Result extends StatelessWidget {
-  const Result({
+class ResultView extends StatelessWidget {
+  const ResultView({
     Key? key,
+    required this.kelvin,
+    required this.fahrenheit,
+    required this.reamur,
   }) : super(key: key);
+
+  final double kelvin;
+  final double fahrenheit;
+  final double reamur;
 
   @override
   Widget build(BuildContext context) {
@@ -11,62 +18,50 @@ class Result extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Column(
-          children: const [
-            Text(
+          children: [
+            const Text(
               "Kelvin",
-              style: TextStyle(
-                fontSize: 20,
-              ),
+              style: TextStyle(fontSize: 20),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
-              '_kelvin',
-              style: TextStyle(
-                fontSize: 30,
-              ),
+              '$kelvin',
+              style: const TextStyle(fontSize: 30),
             ),
           ],
         ),
         Column(
-          children: const [
-            Text(
-              "Reamor",
-              style: TextStyle(
-                fontSize: 20,
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              '_reamor',
-              style: TextStyle(
-                fontSize: 30,
-              ),
-            ),
-          ],
-        ),
-        Column(
-          children: const [
-            Text(
+          children: [
+            const Text(
               "Fahrenheit",
-              style: TextStyle(
-                fontSize: 20,
-              ),
+              style: TextStyle(fontSize: 20),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
-              '_fahrenheit',
-              style: TextStyle(
-                fontSize: 30,
-              ),
+              '$fahrenheit',
+              style: const TextStyle(fontSize: 30),
             ),
           ],
         ),
+        Column(
+          children: [
+            const Text(
+              "Reamur",
+              style: TextStyle(fontSize: 20),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Text(
+              '$reamur',
+              style: const TextStyle(fontSize: 30),
+            ),
+          ],
+        )
       ],
     );
   }

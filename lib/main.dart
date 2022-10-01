@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'partials/input.dart';
 import 'partials/result.dart';
 
@@ -11,29 +8,31 @@ void main() {
 
 class MyApp extends StatefulWidget {
   @override
-  State<MyApp> createState() => _MyAppState();
+  _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
   final myInput = TextEditingController();
 
-  double _inputUser = 0;
-  double _kelvin = 0;
-  double _reamor = 0;
-  double _fahrenheit = 0;
+  double inputUser = 0;
+  double kelvin = 0;
+  double fahrenheit = 0;
+  double reamur = 0;
 
   tempConvert() {
+    //set state
     setState(() {
-      _inputUser = double.parse(myInput.text);
-      _kelvin = 4 / 5 * _inputUser;
-      _reamor = 9 / 5 * _inputUser + 32;
-      _fahrenheit = _inputUser + 273;
+      inputUser = double.parse(myInput.text);
+      reamur = 4 / 5 * inputUser;
+      fahrenheit = 9 / 5 * inputUser + 32;
+      kelvin = inputUser + 273;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
@@ -44,23 +43,25 @@ class _MyAppState extends State<MyApp> {
             title: const Text("Temperature Converter"),
           ),
           body: Container(
-            margin: const EdgeInsets.all(8),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Input(myInput: myInput),
-                const Result(),
-                Container(
-                  width: double.infinity,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: tempConvert(),
-                    child: const Text("Convert"),
+              margin: const EdgeInsets.all(8),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InputNumber(myInput: myInput),
+                  ResultView(
+                      kelvin: kelvin, fahrenheit: fahrenheit, reamur: reamur),
+                  Container(
+                    width: double.infinity,
+                    height: 50,
+                    // child: RaisedButton(
+                    //   onPressed: konversi,
+                    //   color: Colors.blue,
+                    //   textColor: Colors.black,
+                    //   child: Text("Konversi"),
+                    // ),
                   ),
-                ),
-              ],
-            ),
-          ),
+                ],
+              )),
         ));
   }
 }

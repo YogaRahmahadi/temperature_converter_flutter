@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Input extends StatelessWidget {
-  const Input({
+class InputNumber extends StatelessWidget {
+  const InputNumber({
     Key? key,
     required this.myInput,
   }) : super(key: key);
@@ -17,7 +17,6 @@ class Input extends StatelessWidget {
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       decoration: const InputDecoration(
         hintText: "Input Temperature in Celcius",
-        border: InputBorder.none,
       ),
     );
   }
